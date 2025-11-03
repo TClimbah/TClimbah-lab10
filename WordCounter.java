@@ -61,4 +61,60 @@ public class WordCounter {
         }
         return str;
     }
+    public static void main(String[] args) {
+        Scanner scraper = new Scanner(System.in);
+        int i = 0;
+        // Argument 1
+        if (args.length > 0) {
+            try {
+                i = Integer.parseInt(args[0]);
+            }
+            catch (NumberFormatException e) {
+                i = 0;
+            }
+        }
+        while(i != 1 && i != 2) {
+            System.out.println("Choose wheather you want to process a file (1), or process a text(2)");
+            i = scraper.nextInt();
+        }
+        // Argument 2
+        String stopWord = "";
+        if (args.length > 1) {
+            stopWord = args[1];
+        }
+        if (stopWord.isEmpty()) {
+            System.out.println("Choose a stop word: ");
+            stopWord = scraper.nextLine();
+        }
+        StringBuffer text = new StringBuffer();
+        if (i == 1) { // processing the file
+            System.out.println("Enter file path: ");
+            String path = scraper.nextLine();
+            try {
+                text = processFile(path);
+            }
+            catch (EmptyFileException e) {
+                text = new StringBuffer("");
+            }
+        }
+        else if (i == 2) { // processing text
+            System.out.println("Enter your text: ");
+            text.append(scraper.nextLine());
+        }
+        boolean stopwordFound = text.toString().contains(stopWord);
+        if (!stopwordFound) {
+            System.out.println("You have one more chance to input a stopword");
+            stopWord = scraper.nextLine();
+            stopwordFound = text.toString().contains(stopWord);
+        }
+        try {
+        int words = processText(text, stopWord);
+        }
+        catch (TooSmallText e) {
+            System.out.println("Not enough words.");
+        }
+        catch (InvalidStopwordException e) {
+            System.out.println("Stopword is not found.");
+        }
+    }
 }
