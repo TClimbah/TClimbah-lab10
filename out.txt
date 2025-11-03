@@ -1,7 +1,7 @@
 Choose whether you want to process a file (1), or process a text(2)
 java.util.NoSuchElementException: No line found
 	at java.base/java.util.Scanner.nextLine(Scanner.java:1677)
-	at WordCounter.main(WordCounter.java:81)
+	at WordCounter.main(WordCounter.java:77)
 	at Lab10_Tester.test14(Lab10_Tester.java:378)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -35,45 +35,12 @@ java.util.NoSuchElementException: No line found
 	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:77)
 	at org.junit.runner.JUnitCore.main(JUnitCore.java:36)
 process long text with found stopword
-I just found the word: This
-I just found the word: sentence
-I just found the word: is
-I just found the word: long
-I just found the word: enough
-I just found the word: to
 process long text with no stopword
-I just found the word: This
-I just found the word: sentence
-I just found the word: is
-I just found the word: long
-I just found the word: enough
-I just found the word: to
-I just found the word: yellow
-I just found the word: pass
-I just found the word: this
-I just found the word: test
-I just found the word: But
-I just found the word: it
-I just found the word: could
-I just found the word: be
-I just found the word: even
-I just found the word: longer
 process long text with missing stopword
 process short text with found stopword
-I just found the word: This
 process short text with missing stopword
 process short text with found stopword
-I just found the word: This
 process easy long text with end stopword
-I just found the word: This
-I just found the word: sentence
-I just found the word: is
-I just found the word: long
-I just found the word: enough
-I just found the word: to
-I just found the word: pass
-I just found the word: this
-I just found the word: test
 process found file
 process missing file
 File not found. Please re-enter the file path: 

@@ -22,7 +22,6 @@ public class WordCounter {
         Matcher matcher = regex.matcher(newText);
         int wordCount = 0;
         while (matcher.find()) {
-            System.out.println("I just found the word: " + matcher.group());
             wordCount++;
         }
         if (wordCount < 5) {
@@ -35,8 +34,7 @@ public class WordCounter {
     public static StringBuffer processFile(String path) throws EmptyFileException {
         Scanner scraper = new Scanner(System.in);
         StringBuffer str = new StringBuffer();
-        int i = 0;
-        while (i == 0) {
+        while (true) {
             try {
                 BufferedReader reader = new BufferedReader(new FileReader(path));
                 String parser;
@@ -49,7 +47,6 @@ public class WordCounter {
                 if (empty == 0) {
                     throw new EmptyFileException(path);
                 }
-                i++;
                 return str;
             }
             catch (FileNotFoundException e){
@@ -61,7 +58,6 @@ public class WordCounter {
                 System.out.println("Error reading file");
             }
         }
-        return str;
     }
     public static void main(String[] args) {
         Scanner scraper = new Scanner(System.in);
