@@ -3,27 +3,30 @@ import java.io.BufferedReader;
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.io.IOException;
 
 public class WordCounter {
-    public static int wordCount;
 
     public static int processText(StringBuffer text, String stopword) throws InvalidStopwordException, TooSmallText {
-        String index = new String(text);
-        if(index.contains(stopword)) {
-            String newString = index.substring(0, index.indexOf(stopword));
-            String[] newerString = newString.split(" ");
-            wordCount = newerString.length;
+        String newText = text.toString();
+        if (stopword != null && !stopword.isEmpty()) {
+        int index = newText.indexOf(stopword);
+            if (index == -1) {
+                throw new InvalidStopwordException("Stopword not found in text: " + stopword);
+            }
+            newText = newText.substring(0, index);
         }
-        else if(stopword == null) {
-            String[] newerString = index.split(" ");
-            wordCount = newerString.length;
-        }
-        else {
-            throw new InvalidStopwordException("couldnt find the stop word in StringBuffer");
+        Pattern regex = Pattern.compile("[a-zA-Z0-9']+");
+        Matcher matcher = regex.matcher(newText);
+        int wordCount = 0;
+        while (matcher.find()) {
+            System.out.println("I just found the word: " + matcher.group());
+            wordCount++;
         }
         if (wordCount < 5) {
-            throw new TooSmallText("Not enough words, need 5 minimum");
+           throw new TooSmallText("Only found " + wordCount + " words.");
         }
         else {
             return wordCount;
@@ -47,7 +50,6 @@ public class WordCounter {
                     throw new EmptyFileException(path);
                 }
                 i++;
-                scraper.close();
                 return str;
             }
             catch (FileNotFoundException e){
@@ -74,8 +76,9 @@ public class WordCounter {
             }
         }
         while(i != 1 && i != 2) {
-            System.out.println("Choose wheather you want to process a file (1), or process a text(2)");
+            System.out.println("Choose whether you want to process a file (1), or process a text(2)");
             i = scraper.nextInt();
+            scraper.nextLine();
         }
         // Argument 2
         String stopWord = "";
@@ -109,6 +112,7 @@ public class WordCounter {
         }
         try {
         int words = processText(text, stopWord);
+        System.out.println("Found " + words + " words.");
         }
         catch (TooSmallText e) {
             System.out.println("Not enough words.");
