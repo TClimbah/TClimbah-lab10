@@ -1,0 +1,29 @@
+commit 87aa962182993caeba5cc751068dc3de92ba163a
+Author: Nicholas Ryabov <nicholasryabov@gmail.com>
+Date:   Mon Nov 3 04:18:24 2025 -0500
+
+    I spent so long on this, cannot figure out what the issue is
+
+commit f829c98c5f53cec3c2d07b3b96632674bd9147a3
+Author: Nicholas Ryabov <nicholasryabov@gmail.com>
+Date:   Mon Nov 3 04:05:57 2025 -0500
+
+    had to rewrite processText, needed a better way to count words
+
+commit 25526eb42dacc5995291b0ba6e6b08f2682c19ad
+Author: Nicholas Ryabov <nicholasryabov@gmail.com>
+Date:   Mon Nov 3 03:30:47 2025 -0500
+
+    finished files, checking for bugs
+
+commit 5cb53a41f694592a595a1e8fab0777a70d0a2402
+Author: Nicholas Ryabov <nicholasryabov@gmail.com>
+Date:   Mon Nov 3 02:36:28 2025 -0500
+
+    still working on finishing WordCounter
+
+commit 82a37bb842b75ad490f620e4a462469212726e61
+Author: Nicholas Ryabov <nicholasryabov@gmail.com>
+Date:   Mon Oct 27 14:45:42 2025 -0400
+
+    all files added

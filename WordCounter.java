@@ -11,16 +11,17 @@ public class WordCounter {
 
     public static int processText(StringBuffer text, String stopword) throws InvalidStopwordException, TooSmallText {
         String newText = text.toString();
+        int wordCount = 0;
         if (stopword != null && !stopword.isEmpty()) {
-        int index = newText.indexOf(stopword);
+            wordCount++;
+            int index = newText.indexOf(stopword);
             if (index == -1) {
-                throw new InvalidStopwordException("Stopword not found in text: " + stopword);
+                throw new InvalidStopwordException("Couldn't find stopword: " + stopword);
             }
             newText = newText.substring(0, index);
         }
         Pattern regex = Pattern.compile("[a-zA-Z0-9']+");
         Matcher matcher = regex.matcher(newText);
-        int wordCount = 0;
         while (matcher.find()) {
             wordCount++;
         }

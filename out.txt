@@ -1,7 +1,7 @@
 Choose whether you want to process a file (1), or process a text(2)
 java.util.NoSuchElementException: No line found
 	at java.base/java.util.Scanner.nextLine(Scanner.java:1677)
-	at WordCounter.main(WordCounter.java:77)
+	at WordCounter.main(WordCounter.java:78)
 	at Lab10_Tester.test14(Lab10_Tester.java:378)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
